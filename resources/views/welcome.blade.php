@@ -86,6 +86,9 @@
             <div class="title m-b-md">
                 Hello World!
             </div>
+            <a href="{{route('sample')}}">
+                新規ページへ
+            </a>
 
             <div class="links">
                 <a href="https://laravel.com/docs">Docs</a>

@@ -38,4 +38,30 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         return view('posts.show', ['post' => $post]);
     }
+
+    public function edit($id)
+    {
+        $post = Post::findOrFail($id);
+
+        //投稿者以外が編集ボタンを押した場合はホーム画面にリダイレクトさせる
+        if ($post->user_id !== Auth::id()) {
+            return redirect('/');
+        }
+        return view('posts.edit', ['post' => $post]);
+    }
+
+    public function update(PostRequest $request, $id)
+    {
+        $post = Post::findOrFail($id);
+
+        if ($post->user_id !== Auth::id()) {
+            return redirect('/');
+        }
+
+        $post->title = $request->title;
+        $post->body = $request->body;
+        $post->save();
+
+        return redirect('/');
+    }
 }

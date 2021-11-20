@@ -17,6 +17,7 @@ class PostController extends Controller
 
     public function create()
     {
+        dd('投稿画面だよ！！');
         return view('posts.create');
     }
 
@@ -42,6 +43,7 @@ class PostController extends Controller
     public function edit($id)
     {
         $post = Post::findOrFail($id);
+        dd($post);
 
         //投稿者以外が編集ボタンを押した場合はホーム画面にリダイレクトさせる
         if ($post->user_id !== Auth::id()) {

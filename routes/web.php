@@ -11,9 +11,7 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+use App\Http\Controllers\PostController;
 
 Route::get('sample', 'SampleController@index')->name('sample');
 
@@ -26,4 +24,5 @@ Route::get('/', 'PostController@index')->name('post.index');
 Route::group(['middleware' => 'auth'], function () {
     Route::get('post/create', 'PostController@create')->name('post.create');
     Route::post('post/create', 'PostController@store')->name('post.store');
+    Route::get('post/{id}/show', 'PostController@show')->name('post.show');
 });

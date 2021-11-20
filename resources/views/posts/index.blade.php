@@ -19,7 +19,7 @@
           {{ $post->body }}
         </p>
         <div class="text-right">
-          <a class="btn btn-primary btn-sm" href="{{ route('post.show',['id' => $post->id]) }}">
+          <a class="btn btn-primary btn-sm" href="{{ route('post.show', ['id' => $post->id]) }}">
             詳細
           </a>
         </div>

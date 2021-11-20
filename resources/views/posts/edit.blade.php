@@ -11,7 +11,7 @@
         @endforeach
       </ul>
       @endif
-      <form action="{{ route('post.update',['id' => $post->id]) }}" method="POST">
+      <form action="{{ route('post.update', ['id' => $post->id]) }}" method="POST">
         @csrf
         <div class="form-group">
           <label>タイトル</label>

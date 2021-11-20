@@ -64,4 +64,15 @@ class PostController extends Controller
 
         return redirect('/');
     }
+
+    public function delete($id)
+    {
+        $post = Post::findOrFail($id);
+
+        if ($post->user_id !== Auth::id()) {
+            return redirect('/');
+        }
+        $post->delete();
+        return redirect('/');
+    }
 }
